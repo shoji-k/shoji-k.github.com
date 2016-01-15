@@ -37,42 +37,47 @@ $ jekyll new blog
 This creates "blog" directory and Jekyll set is created there.  
 You can name the directory(blog) whatever.  
 
-$ cd blog
-
+$ cd blog  
 Move to blog directory and continue following steps.
 
 ### set blog config
 
-change \_config.yml--
-There are title, email, twitter username, etc.--
+Change \_config.yml  
+There are title, email, twitter username, etc.  
 
 ### write a post
 
-create file to \_posts directory.--
-e.g. ./2016-01-15-welcome-to-jekyll.markdown--
+Create file to \_posts directory.  
+e.g. ./2016-01-15-welcome-to-jekyll.markdown  
 
 ### check how you see the page
 
 $ jekyll serve
 
-This prepares webserver.--
+This prepares webserver.  
 You can see it on http://localhost:4000.
 
 ## upload to github pages
 
 ### put under git
 
-move top directory and put under git--
-$ git init--
-$ git add -A--
-$ git commit -m 'first commit'--
+Move top directory and put under git  
+$ git init  
+$ git add -A  
+$ git commit -m 'first commit'  
+
+
+### create your repository on Github
+
+Prepare your account name Github repository.  
+e.g. shoji-k.github.com.git  
 
 ### upload to github
 
-$ git remote add 
-$ git push origin master
+$ git remote add origin git@github.com:shoji-k/shoji-k.github.com.git  
+$ git push -u origin master  
 
 ## check your page
 
-access //
+Access [//shoji-k.github.io/](http://shoji-k.github.io/)
 

@@ -1,0 +1,168 @@
+---
+layout: post
+title:  "cakephp starter"
+date:   2016-01-15 15:00:00 +0900
+categories: cakephp
+---
+
+# install cakephp
+
+$ composer init  
+
+Change default vendor-dir to Vender.  
+$ vim composer.json  
+
+{% highlight javascript %}
+  "config": {
+    "vendor-dir": "Vendor"
+  },
+{% endhighlight %}
+
+Install cakephp 2  
+$ composer require "cakephp/cakephp":"2.*"  
+
+Bake app  
+$ Vendor/bin/cake bake project app
+
+Vender and Plugin directory is made by composer on route directory,  
+so remove Vender and Plugin in app  
+$ rm -rf app/Vender  
+$ rm -rf app/Plugin  
+
+Put under git
+
+$ git init
+
+Create .gitignore  
+$ vim .gitignore  
+
+{% highlight shell %}
+Vendor/*
+Plugin/*
+app/tmp/*
+{% endhighlight %}
+
+$ find . -type d -empty -not -path './.git*' -exec touch {}/.gitkeep \;  
+$ git add -f app/tmp  
+$ git add -f Vendor/.gitkeep
+$ git add -f Plugin/.gitkeep
+
+Adjust CAKE_CORE_INCLUDE_PATH  
+$ vim app/webroot/index.php  
+$ vim app/webroot/test.php  
+
+{% highlight php %}
+define('CAKE_CORE_INCLUDE_PATH',  ROOT . DS . 'Vendor' . DS . 'cakephp' . DS . 'cakephp' . DS . 'lib');
+{% endhighlight %}
+
+Change autoloader to use composer's.  
+Reffer to [Advanced Installation — CakePHP Cookbook 2.x documentation](http://book.cakephp.org/2.0/en/installation/advanced-installation.html)  
+But there is a change of autloader path.  
+
+$ vim app/Config/bootstrap.php
+
+{% highlight php %}
+// Load Composer autoload.
+require ROOT . DS . 'Vendor/autoload.php';
+
+Adjust Plugin directory  
+$ vim app/Config/bootstrap.php  
+
+{% highlight php %}
+App::build([
+    'Plugin' => [ROOT . DS . 'Plugin' . DS]
+]);
+{% endhighlight %}
+
+// Remove and re-prepend CakePHP's autoloader as Composer thinks it is the
+// most important.
+// See: http://goo.gl/kKVJO7
+spl_autoload_unregister(array('App', 'load'));
+spl_autoload_register(array('App', 'load'), true, true);
+{% endhighlight %}
+
+Create mysql database  
+Login to mysql and implement sql  
+
+{% highlight php %}
+CREATE DATABASE cakephp_starter CHARACTER SET utf8;
+CREATE DATABASE test_cakephp_starter CHARACTER SET utf8;
+
+GRANT ALL PRIVILEGES ON cakephp_starter.* TO user@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON test_cakephp_starter.* TO user@localhost IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;
+{% endhighlight %}
+
+Prepare Config/database.php
+
+{% highlight php %}
+class DATABASE_CONFIG {
+
+    public $default = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+        'host' => 'localhost',
+        'login' => 'user',
+        'password' => 'password',
+        'database' => 'cakephp_starter',
+        'prefix' => '',
+        'encoding' => 'utf8',
+    );
+
+    public $test = array(
+        'datasource' => 'Database/Mysql',
+        'persistent' => false,
+        'host' => 'localhost',
+        'login' => 'user',
+        'password' => 'password',
+        'database' => 'test_cakephp_starter',
+        'prefix' => '',
+        'encoding' => 'utf8',
+    );
+}
+{% endhighlight %}
+
+# install debug_kit plugin
+
+$ composer require --dev cakephp/debug_kit:2.*
+
+$ vim app/Config/bootstrap.php
+
+{% highlight php %}
+CakePlugin::load('DebugKit');
+{% endhighlight %}
+
+$ vim app/Controller/AppController
+
+{% highlight php %}
+class AppController extends Controller {
+  public $components = array('DebugKit.Toolbar');
+}
+{% endhighlight %}
+
+# install phpunit
+
+Reffer to [Testing — CakePHP Cookbook 2.x documentation](http://book.cakephp.org/2.0/en/development/testing.html)  
+
+$ composer require --dev phpunit/phpunit:3.7.*
+
+# install cakedc/migration
+
+$ composer require cakedc/migrations:2.*
+
+Change the path which depends on development to solve path error in another development
+
+{% highlight php %}
+if (file_exists($composerInstall . DS . $dispatcher)) {
+    $install = $composerInstall;
+} elseif (!file_exists($install . DS . $dispatcher)) {
++    $install = $root . PATH_SEPARATOR . $root . DS . 'Vendor' . DS . 'cakephp' . DS . 'cakephp' . DS . 'lib';
+}
+{% endhighlight %}
+
+Create migration file
+$ app/Console/cake migrations.migration generate create_posts id:primary_key title:string body:text created modified
+
+Implement sql to database
+$ app/Console/cake migrations.migration run all
+

@@ -12,7 +12,7 @@ $ composer init
 Change default vendor-dir to Vender.  
 $ vim composer.json  
 
-{% highlight javascript %}
+{% highlight js %}
   "config": {
     "vendor-dir": "Vendor"
   },
@@ -36,7 +36,7 @@ $ git init
 Create .gitignore  
 $ vim .gitignore  
 
-{% highlight shell %}
+{% highlight text %}
 Vendor/*
 Plugin/*
 app/tmp/*

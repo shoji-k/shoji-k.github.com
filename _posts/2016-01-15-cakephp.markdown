@@ -160,9 +160,35 @@ if (file_exists($composerInstall . DS . $dispatcher)) {
 }
 {% endhighlight %}
 
-Create migration file
-$ app/Console/cake migrations.migration generate create_posts id:primary_key title:string body:text created modified
+# prepare post table in dataabse
 
-Implement sql to database
-$ app/Console/cake migrations.migration run all
+Create migration file  
+$ app/Console/cake migrations.migration generate create_posts id:primary_key title:string body:text created modified  
+
+Implement sql to database  
+$ app/Console/cake migrations.migration run all  
+
+# create app
+
+Bake Model/Post  
+$ app/Console/cake bake model Post  
+
+Change validate and create Model/Post test code  
+
+Bake Controller/Post  
+$ app/Console/cake bake controller Post  
+
+Bake View/Post  
+$ app/Console/cake bake view Post  
+
+Change code  
+see [shoji-k/cakephp-starter](https://github.com/shoji-k/cakephp-starter)  
+
+- app/Controller/Post.php  
+- app/View/Post/index.ctp  
+- app/Model/Post.php  
+
+
+
+
 

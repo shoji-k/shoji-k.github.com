@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "sed starter"
+date:   2016-02-03 11:00:00 +0900
+categories: shell
+---
+
+$ seq 1 5 | sed 's/2/@/g'
+
+{% highlight text %}
+1
+@
+3
+4
+5
+{% endhighlight %}
+

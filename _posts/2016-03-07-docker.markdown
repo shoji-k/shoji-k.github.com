@@ -1,0 +1,85 @@
+---
+layout: post
+title:  "template"
+date:   2016-02-01 13:00:00 +0900
+categories: sample
+---
+
+# Docker
+
+run ubuntu container and run a command.
+if ubuntu isn't downloaded, it starts downloading it.
+$ docker run ubuntu cat /etc/lsb-release
+
+$ docker search nginx
+
+-d -> deamon
+-P -> connect port between the host and the container
+--name -> container name
+-e -> set env
+-v -> bind directory
+$ docker run -d -P --name=server -e myenv=foo -v ~/:/usr/share/local/nginx/html nginx
+
+bind ports
+-p 60000-60030:60000-60030 -p 8080:80
+
+--link (id):(alias)
+you can set alias by yourself
+$ sudo docker run --link (id):(alias) ubuntu
+
+$ sudo docker run --link server:ngx ubuntu env | grep -i _port
+
+{% highlight php %}
+NGX_PORT=tcp://172.17.0.2:80
+NGX_PORT_80_TCP=tcp://172.17.0.2:80
+NGX_PORT_80_TCP_ADDR=172.17.0.2
+NGX_PORT_80_TCP_PORT=80
+NGX_PORT_80_TCP_PROTO=tcp
+NGX_PORT_443_TCP=tcp://172.17.0.2:443
+NGX_PORT_443_TCP_ADDR=172.17.0.2
+NGX_PORT_443_TCP_PORT=443
+NGX_PORT_443_TCP_PROTO=tcp
+{% endhighlight %}
+
+--rm automatically remove the container if it exists
+$ sudo docker run --rm --link server:ngx ubuntu cat /etc/hosts
+
+stop docker
+$ sudo docker stop (id)
+
+show all containers (includes stopped one)
+$ sudo docker ps -a
+
+remove stopped container
+$ sudo docker rm (id)
+
+start a stopped container
+$ sudo docker start (id)
+
+run one command
+$ sudo docker exec (id) md5sum /etc/nginx/nginx.conf
+
+implement bash
+$ sudo docker exec -i -t (id) /bin/bash
+
+show docker logs
+$ sudo docker logs (id)
+
+show container details
+$ sudo docker inspect (id)
+
+$ sudo docker images
+
+remove an docker image
+$ sudo docker rmi (image)
+
+
+
+
+see below  
+[link](http://google.co.jp)  
+
+
+{% highlight php %}
+{% endhighlight %}
+

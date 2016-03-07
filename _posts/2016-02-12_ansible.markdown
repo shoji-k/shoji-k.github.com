@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "template"
+date:   2016-02-01 13:00:00 +0900
+categories: sample
+---
+
+# forward
+can use ssh with key to connect server  
+
+# start
+
+create inventory file  
+
+$ vim /etc/ansible/hosts
+
+{% highlight text %}
+[servers]
+sample
+server
+{% endhighlight %}
+
+2 servers are  written  
+[xxxx] is a group name  
+server name is used in ssh/config  
+
+$ ansible all -m ping
+or  
+$ ansible servers -m ping
+$ ansible sample -m ping
+
+sample is one server name  
+servers is a group name  
+ping is one module of ansible  
+
+## to vagrant
+
+set vagrant ssh to .ssh/config  
+$ vagrant ssh-config ansible >> ~/.ssh/config  
+
+try ssh to vagrant  
+$ ssh ansible  
+
+# playbook
+
+## check syntax
+$ ansible-playbook sample.yml --syntax-check  
+
+
+see below  
+[link](http://google.co.jp)  
+
+{% highlight php %}
+{% endhighlight %}

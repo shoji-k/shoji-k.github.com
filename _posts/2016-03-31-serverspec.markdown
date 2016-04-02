@@ -22,8 +22,7 @@ $ serverspec-init
 
 prepared sample spec  
 
-$ rake spec ASK_SUDO_PASSWORD=1  
-
-
-
+$ ASK_SUDO_PASSWORD=1 rake spec  
+or  
+$ SUDO_PASSWORD=xxxxxxxx rake spec
 

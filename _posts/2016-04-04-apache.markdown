@@ -1,0 +1,28 @@
+---
+layout: post
+title:  "apache"
+date:   2016-04-04 13:00:00 +0900
+categories: apache
+---
+
+# Ubuntu
+
+## change port
+
+$ vim /etc/apache2/ports.conf  
+
+{% highlight text %}
+Listen 80
+{% endhighlight %}
+
+$ vim /etc/apache2/sites-available/000-default.conf  
+
+{% highlight text %}
+<VirtualHost *:80>
+{% endhighlight %}
+
+## Virtualhost
+
+[UbuntuTips/DedicatedServer/ApacheVirtualHost - Ubuntu Japanese Wiki](https://wiki.ubuntulinux.jp/UbuntuTips/DedicatedServer/ApacheVirtualHost)
+
+

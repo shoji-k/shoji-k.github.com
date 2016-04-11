@@ -31,12 +31,12 @@ sub   4096R/yyyyyyyy 2016-04-10
 xxxxxxxx is the id  
 
 show public key  
-$ gpg --armor --export <コピーした鍵のID>  
+$ gpg --armor --export コピーした鍵のID  
 
 copy and paste in the github setting  
 
 $ git config --global gpg.program gpg  
-$ git config --global user.signingkey <コピーした鍵のID>  
+$ git config --global user.signingkey コピーした鍵のID  
 $ git config --global commit.gpgsign true  
 
 # copy gpg key

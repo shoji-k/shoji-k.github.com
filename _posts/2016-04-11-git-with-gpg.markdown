@@ -44,5 +44,8 @@ $ git config --global commit.gpgsign true
 copy .gnupg directory  
 -> this doesn't work  
 
+todo  
+[ ] check git version  
+
 
 

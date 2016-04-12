@@ -33,3 +33,8 @@ COMMIT
 udp 60000:61000 is for mosh.  
 
 $ sudo service iptables restart
+
+# bg
+
+[うっかりnohup無しで長時間かかるコマンドを実行したときに後から終了しないようにする - Glide Note](http://blog.glidenote.com/blog/2013/09/26/bg-and-disown/)
+

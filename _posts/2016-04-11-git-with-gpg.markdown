@@ -42,10 +42,10 @@ $ git config --global commit.gpgsign true
 # copy gpg key
 
 copy .gnupg directory  
--> this doesn't work  
+-> this didn't work because git version was old  
 
 todo  
-[ ] check git version  
+[ ] retry
 
 
 

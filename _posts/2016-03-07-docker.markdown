@@ -11,13 +11,23 @@ reffer to:  [curl -fsSL https://get.docker.com/gpg | sudo apt-key add -](https:/
 
 $ curl -fsSL https://get.docker.com/ | sh  
 $ sudo usermod -aG docker user  
-$ curl -fsSL https://get.docker.com/gpg | sudo apt-key add -
+$ sudo service docker restart  
+
+logout once and login again not to need to use sudo  
+
+$ curl -fsSL https://get.docker.com/gpg | sudo apt-key add -  
 
 $ docker -v  
 
 {% highlight text %}
 Docker version 1.11.0, build 4dc5990
 {% endhighlight %}
+
+check docker  
+$ docker run hello-world
+
+go into inside on bash  
+$ docker run -it ubuntu bash  
 
 # implement
 

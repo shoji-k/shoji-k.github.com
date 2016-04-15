@@ -5,9 +5,7 @@ date:   2016-03-10 13:00:00 +0900
 categories: sample
 ---
 
-# Docker
-
-## install
+# install
 
 reffer to:  [curl -fsSL https://get.docker.com/gpg | sudo apt-key add -](https://docs.docker.com/linux/step_one/)  
 
@@ -21,7 +19,7 @@ $ docker -v
 Docker version 1.11.0, build 4dc5990
 {% endhighlight %}
 
-## implement
+# implement
 
 run ubuntu container and run a command.  
 if ubuntu isn't downloaded, it starts downloading it.  

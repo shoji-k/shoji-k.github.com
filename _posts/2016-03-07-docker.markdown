@@ -7,7 +7,8 @@ categories: sample
 
 # install
 
-reffer to:  [curl -fsSL https://get.docker.com/gpg | sudo apt-key add -](https://docs.docker.com/linux/step_one/)  
+reffer to:  
+[curl -fsSL https://get.docker.com/gpg | sudo apt-key add -](https://docs.docker.com/linux/step_one/)  
 
 $ curl -fsSL https://get.docker.com/ | sh  
 $ sudo usermod -aG docker user  

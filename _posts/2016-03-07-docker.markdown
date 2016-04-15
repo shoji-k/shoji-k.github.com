@@ -98,7 +98,7 @@ $ sudo docker images
 remove an docker image  
 $ sudo docker rmi (image)
 
-prepare Dockerfile and run
+# prepare Dockerfile and run
 
 $ vim Dockerfile
 
@@ -112,4 +112,11 @@ CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
 {% endhighlight %}
 
 $ sudo docker build -t example1 .
+
+# push to hub.docker
+
+create account on https://hub.docker.com/  
+$ docker tag docker-whale shojik/docker-whale:latest  
+$ docker login --username=shojik --email=sample@sample.com  
+$ docker push shojik/docker-whale  
 

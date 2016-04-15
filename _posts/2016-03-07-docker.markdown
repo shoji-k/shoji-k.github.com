@@ -7,6 +7,22 @@ categories: sample
 
 # Docker
 
+## install
+
+reffer to:  [curl -fsSL https://get.docker.com/gpg | sudo apt-key add -](https://docs.docker.com/linux/step_one/)  
+
+$ curl -fsSL https://get.docker.com/ | sh  
+$ sudo usermod -aG docker user  
+$ curl -fsSL https://get.docker.com/gpg | sudo apt-key add -
+
+$ docker -v  
+
+{% highlight text %}
+Docker version 1.11.0, build 4dc5990
+{% endhighlight %}
+
+## implement
+
 run ubuntu container and run a command.  
 if ubuntu isn't downloaded, it starts downloading it.  
 $ docker run ubuntu cat /etc/lsb-release  

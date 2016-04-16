@@ -30,7 +30,7 @@ $ docker run hello-world
 go into inside on bash  
 $ docker run -it ubuntu bash  
 
-# implement
+# commands
 
 run ubuntu container and run a command.  
 if ubuntu isn't downloaded, it starts downloading it.  
@@ -100,6 +100,12 @@ $ docker rmi (image)
 
 show image detail
 $ docker inspect (image)
+
+delete all docker containers  
+$ docker rm $(docker ps -aq)  
+
+delete all docker images
+$ docker rmi $(docker images -q)
 
 # prepare Dockerfile and run
 

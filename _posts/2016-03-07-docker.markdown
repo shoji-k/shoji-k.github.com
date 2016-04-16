@@ -121,5 +121,8 @@ $ docker build -t example1 .
 create account on https://hub.docker.com/  
 $ docker tag docker-whale shojik/docker-whale:latest  
 $ docker login --username=shojik --email=sample@sample.com  
+
+save token to ~/.docker/config.json  
+
 $ docker push shojik/docker-whale  
 

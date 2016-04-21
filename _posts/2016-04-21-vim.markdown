@@ -1,0 +1,75 @@
+---
+layout: post
+title:  "vim"
+date:   2016-04-21 13:00:00 +0900
+categories: vim
+---
+
+# commands
+
+{% highlight text %}
+>G -> indent to last line
+f char charまで飛ぶ
+; f+ を繰り返せる
+, f+ を戻る
+s １文字消して挿入モード
+* find the word cursor is on
+daw delete a word
+Ctrl+x 数字へ飛んで-1
+Ctrl+a -> doesn't work on terminal
+gU 大文字へ
+gUU １行大文字へ（これは特殊）
+gUap capitalize paragraph
+ga カーソルの下の文字の文字コードが分かる
+:h digraph-table ダイグラフ一覧
+gv 直前のvisual選択を再選択
+vit visually select inside a tag
+gUit タグで囲まれた文字を大文字にする
+I 先頭に移動してinsert mode
+3G 3行目に移動
+Ctrl+o ジャンプリストを遡る
+{% endhighlight %}
+
+# insert mode
+
+{% highlight text %}
+Ctrl+h delete one char
+Ctrl+w delete one word
+Ctrl+u delete one line
+Ctrl+o change to insert normal mode
+Ctrl+0 zz インサートモードのまま画面中央に
+Ctrl+r 0 paste register 0
+Ctrl+r Ctrl+o 0 paste register 0 in plain mode
+Ctrl+r = 計算できる
+Ctrl+v 文字コード 文字コードを入力できる
+Ctrl+k ダイグラフ ダイグラフを入力できる
+{% endhighlight %}
+
+# visual mode
+{% highlight text %}
+o visual選択の反対側へいく
+{% endhighlight %}
+# command line mode
+{% highlight text %}
+:1 1行目へ移動
+:p カーソル行を表示
+:d カーソル行を削除
+:j 下の行と結合
+:3p 3行目へ移動して表示
+:.,$p 現在行から最後の行を表示
+:/<html>/+1,/<\/html>/-1p htmlタグに囲まれた部分を表示
+:.,.+3p 現在行から＋３行を表示
+:6t. 6行目を現在行にコピー(t means copy To)
+:'<,>'m0 visual選択を先頭に移動
+:'<,>'m$ visual選択を末尾に移動
+@: 直前のコマンドラインモードを繰り返す 連続なら@@
+:'<,>'normal . 選択範囲に直前のコマンドを行う
+:%normal A; すべての行に;をつける
+Ctrl+d 入力中に候補を表示
+:colorscheme Ctrl+d colorschemeの候補を表示
+: xxx Ctrl+r Ctrl+w xxx カーソルの下の単語をコマンドラインへ表示
+{% endhighlight %}
+# 10進数でインクリメント
+{% highlight text %}
+set nrformats=
+{% endhighlight %}

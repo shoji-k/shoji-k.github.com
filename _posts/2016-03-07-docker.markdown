@@ -104,8 +104,11 @@ $ docker inspect (image)
 delete all docker containers  
 $ docker rm $(docker ps -aq)  
 
-delete all docker images
-$ docker rmi $(docker images -q)
+delete all docker images  
+$ docker rmi $(docker images -q)  
+
+attache deamon container  
+$ docker attach (id)  
 
 # prepare Dockerfile and run
 

@@ -5,13 +5,21 @@ date:   2016-05-04 13:00:00 +0900
 categories: rails
 ---
 
-# commands
+# rails install
 
 prepare Gemfile  
 $ bundle init  
 
+write rails to Gemfile
+
+{% highlight ruby %}
+gem 'rails'
+{% endhighlight %}
+
 install gems  
 $ bundle install -j4 --path vendor/bundler  
 
+create rails app  
+$ bundle exec rails new .  
 
 

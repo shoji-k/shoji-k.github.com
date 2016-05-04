@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "rails"
+date:   2016-05-04 13:00:00 +0900
+categories: rails
+---
+
+# commands
+
+prepare Gemfile  
+$ bundle init  
+
+install gems  
+$ bundle install -j4 --path vendor/bundler  
+
+
+

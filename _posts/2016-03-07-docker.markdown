@@ -135,6 +135,11 @@ save token to ~/.docker/config.json
 
 $ docker push shojik/docker-whale  
 
+# implement rails commands
+
+$ docker-compose run (app name) rails generate scaffold Article title:string  
+$ docker-compose run (app name) rake db:migrate  
+
 ## refferences
 
 - [Dockerのライフサイクルを理解するハンズオン資料 - Qiita](http://qiita.com/zembutsu/items/d146295cfcf69c205c1e)

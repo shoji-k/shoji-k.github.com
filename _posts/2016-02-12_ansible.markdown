@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "template"
+title:  "ansible"
 date:   2016-02-01 13:00:00 +0900
-categories: sample
+categories: ansible
 ---
 
 # forward

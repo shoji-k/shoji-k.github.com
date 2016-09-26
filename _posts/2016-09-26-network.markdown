@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "network"
+date:   2016-09-26 13:00:00 +0900
+categories: network
+---
+
+## command
+
+# ping
+
+ping 5 times
+
+{% highlight text %}
+ping -c 5 google.com
+{% endhighlight %}
+
+# netstat
+
+show all connection and pid of each programs
+
+{% highlight text %}
+netstat -ap
+{% endhighlight %}
+
+refferences:  
+[プログラマーが「ネットワーク怪しくない？」と思った時に覚えておくと便利なことまとめ \- LIVESENSE made\*](http://made.livesense.co.jp/entry/2016/05/10/083000)

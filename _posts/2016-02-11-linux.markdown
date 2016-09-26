@@ -38,3 +38,44 @@ $ sudo service iptables restart
 
 [うっかりnohup無しで長時間かかるコマンドを実行したときに後から終了しないようにする - Glide Note](http://blog.glidenote.com/blog/2013/09/26/bg-and-disown/)
 
+## command
+
+# top
+
+show resources
+
+# free
+
+show memory
+
+# ps aufx
+
+show processes
+
+a 自分以外のプロセスも表示  
+x デーモンプロセスを表示  
+u ユーザー名と開始時刻を表示  
+f 子プロセスも表示  
+
+# lsof -p <pid>
+
+list open files
+
+# df -Th
+
+show disk storage
+
+-T show kind of disk  
+-h show human-readable unit  
+
+
+## check files
+
+# /etc/passwd
+
+see users
+
+# /var/log/cron
+
+see cron log
+

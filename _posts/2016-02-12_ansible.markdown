@@ -46,6 +46,13 @@ $ ssh ansible
 ## check syntax
 $ ansible-playbook sample.yml --syntax-check  
 
+## implement
+$ ansible-playbook -i hosts -t wp -K sample.yml  
+
+- -i set hosts
+- -t set tag
+- -K ask sudo password
+
 
 see below  
 [link](http://google.co.jp)  

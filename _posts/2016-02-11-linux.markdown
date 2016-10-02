@@ -79,3 +79,7 @@ see users
 
 see cron log
 
+# cd $_
+
+mkdir sample && cd $_
+

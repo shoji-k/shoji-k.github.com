@@ -32,11 +32,99 @@ $ docker run -it ubuntu bash
 
 # commands
 
+show downloaded docker images  
+$ docker images
+
 run ubuntu container and run a command.  
 if ubuntu isn't downloaded, it starts downloading it.  
-$ docker run ubuntu cat /etc/lsb-release  
+docker container is booted once and stops.  
+$ docker run --name sample ubuntu cat /etc/lsb-release  
 
+show all containers (includes stopped one)  
+$ docker ps -a  
+
+show container details  
+$ docker inspect (id)
+
+search docker images in dockerhub
 $ docker search nginx
+
+remove stopped container  
+$ docker rm (id)  
+
+delete all docker containers  
+$ docker rm $(docker ps -aq)  
+
+remove an docker image  
+$ docker rmi (image)
+
+delete all docker images  
+$ docker rmi $(docker images -q)  
+
+stop docker  
+$ docker stop (id)  
+
+start a stopped container  
+$ docker start (id)  
+
+run one command in a working container  
+$ docker exec (id) md5sum /etc/nginx/nginx.conf  
+
+implement bash  
+$ docker exec -i -t (id) /bin/bash
+
+show docker logs  
+-t show time  
+$ docker logs -t (id)
+
+show image detail
+$ docker inspect (image)
+
+attache deamon container  
+$ docker attach (id)  
+
+show docker status  
+$ docker stats (id) (id) ..
+
+show container process  
+$ docker top (container id)
+
+show port transffer of container  
+$ docker port (container id)
+
+change container name  
+$ docker rename (old) (new)
+
+copy file between host and docker container  
+$ docker cp file (container id):file  
+$ docker cp (container id):file file
+
+show differences between image and container  
+$ docker diff (container id)
+
+show docker information  
+$ docker info
+
+create images from container  
+$ docker commit (container id) (image name:tag name)
+
+export container  
+export and import is pair  
+this tar file includes directory hierarchy  
+$ docker export container > (file.tar)
+
+import image from exported container tar file  
+$ docker import (file) (image name:tag name)
+
+save docker image to tar  
+save and load is pair  
+save as layer  
+$ docker save -o (file) (image name)
+
+load saved docker image file  
+$ docker load -i (file)
+
+# docker run parameters
 
 -d -> deamon  
 -P -> connect port between the host and the container  
@@ -69,47 +157,6 @@ NGX_PORT_443_TCP_PROTO=tcp
 --rm automatically remove the container if it exists  
 $ docker run --rm --link server:ngx ubuntu cat /etc/hosts  
 
-stop docker  
-$ docker stop (id)  
-
-show all containers (includes stopped one)  
-$ docker ps -a  
-
-remove stopped container  
-$ docker rm (id)  
-
-start a stopped container  
-$ docker start (id)  
-
-run one command  
-$ docker exec (id) md5sum /etc/nginx/nginx.conf  
-
-implement bash  
-$ docker exec -i -t (id) /bin/bash
-
-show docker logs  
-$ docker logs (id)
-
-show container details  
-$ docker inspect (id)
-
-$ docker images
-
-remove an docker image  
-$ docker rmi (image)
-
-show image detail
-$ docker inspect (image)
-
-delete all docker containers  
-$ docker rm $(docker ps -aq)  
-
-delete all docker images  
-$ docker rmi $(docker images -q)  
-
-attache deamon container  
-$ docker attach (id)  
-
 # prepare Dockerfile and run
 
 $ vim Dockerfile
@@ -123,7 +170,99 @@ EXPOSE 80 443
 CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
 {% endhighlight %}
 
-$ docker build -t example1 .
+$ docker build -t (image name:tag name) .
+
+# Dockerfile
+
+RUN  
+this is used to create docker image
+
+shell type  
+implement on /bin/sh  
+RUN echo こんにちは
+
+exec type  
+this doesn't use /bin/sh  
+RUN ["echo, "こんにちは"]
+
+exec type  
+RUN ["/bin/bash", "-c", "echo 'こんにちは'"]
+
+CMD  
+implement command  
+this can be overwritted docker run parameters  
+
+start deamon using shell type  
+CMD /usr/sbin/httpd -D FOREGROUND
+
+start deamon using exec type  
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
+
+ENTRY POINT  
+implement command  
+this can't be overwritted docker run parameters  
+e.g. $ docker run -d -p 81:80 sample /usr/sbin/nginx -g "daemon off;"  
+
+start deamon using ENTRYPOINT shell type  
+ENTRYPOINT /usr/sbin/httpd -D FOREGROUND  
+
+start deamon using ENTRYPOINT exec type  
+ENTRYPOINT ["/usr/sbin/httpd","-D","FOREGROUND"]
+
+place web files when building  
+this create new images  
+ONBUILD website.tar /var/www/html/
+
+set environment parameter  
+ENV myName "taro"
+
+set working directory  
+equals to cd sample  
+WORKDIR sample
+
+assign implement user  
+USER sample
+
+set label  
+SET samplelabel
+
+expose port  
+EXPOSE 8080
+
+add file or directory  
+this can add tar file, then automatically untar  
+ADD index.html /var/www/html/  
+ADD sample.tar /var/www/html/  
+ADD http://sample.com/index.html /var/www/html/  
+
+copy file or directory  
+COPY index.html /var/www/html/
+
+docker-build sends all files in same directory,  
+so prepare .dockerignore file
+
+mount volumne  
+MOUNT /var/log/httpd
+
+# prepare private repository and push
+
+use registory image  
+tag 2.0 is created by go-lang  
+docker pull registory:2.0  
+
+run repository  
+if this container is stopped, registered image is gone  
+this needs to mount or something  
+docker run -d -p 5000:5000 registry:2.0  
+
+name ruled image name  
+docker tag (local image) localhost:5000/(image name)
+
+push image  
+docker push localhost:5000/(image name)
+
+pull image  
+docker pull localhost:5000/(image name)
 
 # push to hub.docker
 
@@ -144,4 +283,4 @@ $ docker-compose run (app name) rake db:migrate
 
 - [Dockerのライフサイクルを理解するハンズオン資料 - Qiita](http://qiita.com/zembutsu/items/d146295cfcf69c205c1e)
 - [実例で学ぶDockerハンズオン - Qiita](http://qiita.com/kohey18/items/dffe9b11d330576ab852)
-
+- [プログラマのためのDocker教科書 インフラの基礎知識＆コードによる環境構築の自動化](http://amzn.to/2dNjPdn)

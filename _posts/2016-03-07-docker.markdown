@@ -241,7 +241,7 @@ COPY index.html /var/www/html/
 docker-build sends all files in same directory,  
 so prepare .dockerignore file
 
-mount volumne  
+mount volume  
 MOUNT /var/log/httpd
 
 # prepare private repository and push
@@ -273,11 +273,6 @@ $ docker login --username=shojik --email=sample@sample.com
 save token to ~/.docker/config.json  
 
 $ docker push shojik/docker-whale  
-
-# implement rails commands
-
-$ docker-compose run (app name) rails generate scaffold Article title:string  
-$ docker-compose run (app name) rake db:migrate  
 
 ## refferences
 

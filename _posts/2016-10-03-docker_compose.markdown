@@ -161,6 +161,11 @@ $ docker exec some-mysql sh -c 'exec mysqldump --all-databases -uroot -p"$MYSQL_
 dump one database (wordpress)  
 $ docker exec some-mysql sh -c 'exec mysqldump wordpress -uroot -p"$MYSQL_ROOT_PASSWORD"' > dump.dbbackup
 
+# mysql image
+
+docker run command  
+$ docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=password -d mysql
+
 # implement rails commands
 
 $ docker-compose run (app name) rails generate scaffold Article title:string  

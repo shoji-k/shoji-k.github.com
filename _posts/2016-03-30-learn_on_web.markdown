@@ -5,6 +5,9 @@ date:   2016-03-30 17:00:00 +0900
 categories: learn
 ---
 
+Google Recommends  
+[Students \- Guide to Technical Development \- Google Careers](https://www.google.com/about/careers/students/guide-to-technical-development.html)
+
 [海外就職に成功した日本人WEBデベロッパー達が使ってるオンライン学習サイトのまとめ | バンクーバーのうぇぶ屋](http://webya.opdsgn.com/introduceweb/tutorial-website-for-japanese-web-developers/)
 解説記事  
 

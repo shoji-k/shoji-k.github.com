@@ -12,6 +12,8 @@ categories: vim
 f char charまで飛ぶ
 ; f+ を繰り返せる
 , f+ を戻る
+t char charの1文字前まで飛ぶ
+dt. .の前まで消す
 s １文字消して挿入モード
 * find the word cursor is on
 daw delete a word
@@ -26,6 +28,13 @@ ga カーソルの下の文字の文字コードが分かる
 :h digraph-table ダイグラフ一覧
 gv 直前のvisual選択を再選択
 vit visually select inside a tag
+vat visually select around a tag
+va" visually select around "
+viw visually select a word
+vaw visually select around a word
+vis visually select a sentence
+vip visually select a paragraph
+cit change inside a tag
 gUit タグで囲まれた文字を大文字にする
 I 先頭に移動してinsert mode
 3G 3行目に移動
@@ -42,6 +51,8 @@ q: コマンドライン履歴を表示
 gt 次のタブへ移動
 gT 次のタブへ逆順で移動
 <C+g> 現在のファイルの名前と状態をエコー
+e 単語の末尾に進む
+ge 前の単語の末尾に戻る
 {% endhighlight %}
 
 # insert mode
@@ -97,7 +108,7 @@ C+f コマンドラインウィンドウを開く
 :windo lcd {path} すべてのウィンドウのカレントディレクトリをpathに移動
 :tabc 現在のタブをとじる
 :tabo 現在のタブを残して他のタブを閉じる
-:tabmove [N] タブの位置を移動する N=0で先頭に
+:tabm [N] タブの位置を移動する N=0で先頭に
 :e %:h<Tab> 開いてるバッファのディレクトリが保管される
 {% endhighlight %}
 
@@ -113,6 +124,9 @@ C+f コマンドラインウィンドウを開く
 :bn は C+oで戻ればいい(:bpだと@:が:bpになる)
 C+z でvimをバックグラウンドに移動、fgでvimに戻る
 :w !sudo tee % 書き込み権限がないファイルに書込み
+v/ge geの場所まで選択
+d/ge geの場所まで削除
+
 
 # vimrc
 10進数でインクリメント  

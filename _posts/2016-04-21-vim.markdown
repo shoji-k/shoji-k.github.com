@@ -10,8 +10,9 @@ categories: vim
 {% highlight text %}
 >G -> indent to last line
 f char charまで飛ぶ
-; f+ を繰り返せる
-, f+ を戻る
+; f+char を繰り返せる
+, f+char を戻る
+F char charを逆に戻る
 t char charの1文字前まで飛ぶ
 dt. .の前まで消す
 s １文字消して挿入モード
@@ -38,7 +39,8 @@ cit change inside a tag
 gUit タグで囲まれた文字を大文字にする
 I 先頭に移動してinsert mode
 3G 3行目に移動
-Ctrl+o ジャンプリストを遡る
+<C+o> ジャンプリストを遡る
+<C+i> ジャンプリストを進む
 q: コマンドライン履歴を表示
 <C+w>s 水平方向に分割
 <C+w>v 垂直方向に分割
@@ -53,6 +55,24 @@ gT 次のタブへ逆順で移動
 <C+g> 現在のファイルの名前と状態をエコー
 e 単語の末尾に進む
 ge 前の単語の末尾に戻る
+m{char} マークをつける
+`{char} マークへ移動する
+% カッコなどの反対側へ移動
+( 前の分の先頭へ移動
+{ 前の段落の先頭へ移動
+H 画面の先頭へジャンプ
+M 画面の中央へジャンプ
+L 画面の最後へジャンプ
+<C+]> カーソル位置の定義位置へジャンプ
+gf カーソル位置のファイルへジャンプ
+g; 変更のあった位置へ進む
+g, 変更のあった位置へ戻る
+gi 最後の挿入モードの場所へ移動して挿入モードへ切り替わる
+mV 大文字だとグローバルにマークできる
+`V 大文字だとグローバルにジャンプできる
+"_d{motion} ブラックホールレジスタ レジスタに影響しない
+"ayiw レジスタaに単語を登録
+"ap レジスタaの単語をpaste
 {% endhighlight %}
 
 # insert mode
@@ -69,6 +89,7 @@ Ctrl+r = 計算できる
 Ctrl+v 文字コード 文字コードを入力できる
 Ctrl+k ダイグラフ ダイグラフを入力できる
 <ESC>o <CR>と同じ
+<C+i> Tabをインサート
 {% endhighlight %}
 
 # visual mode
@@ -96,7 +117,7 @@ Ctrl+d 入力中に候補を表示
 :colorscheme Ctrl+d colorschemeの候補を表示
 : xxx Ctrl+r Ctrl+w xxx カーソルの下の単語をコマンドラインへ表示
 :%s//<C-r><C-w>/g *でハイライトした単語をカーソルの下の単語で置換
-C+f コマンドラインウィンドウを開く
+<C+f> コマンドラインウィンドウを開く
 :ls バッファリストを表示 C+^で代替バッファと切り替え
 :b 3 バッファナンバー3を開く
 :!ruby % 開いているファイルをruby実行
@@ -110,6 +131,9 @@ C+f コマンドラインウィンドウを開く
 :tabo 現在のタブを残して他のタブを閉じる
 :tabm [N] タブの位置を移動する N=0で先頭に
 :e %:h<Tab> 開いてるバッファのディレクトリが保管される
+:marks マーク一覧
+:jumps ジャンプリスト一覧
+:changes 変更一覧
 {% endhighlight %}
 
 # ex mode
@@ -119,6 +143,13 @@ C+f コマンドラインウィンドウを開く
 :/<html>/+1,/<\/html>/-1p HTMLタグ行を除く中身をプリント
 {% endhighlight %}
 
+# auto mark
+`` 直前に行われたジャンプ前の場所
+`. 直前に変更した場所
+`^ 直前に挿入した場所
+`[ 直前にyankした場所の先頭
+`< 直前にビジュアル選択した場所の先頭
+
 # tips
 :bn を繰り返すには @: さらに繰り返すには @@
 :bn は C+oで戻ればいい(:bpだと@:が:bpになる)
@@ -126,11 +157,18 @@ C+z でvimをバックグラウンドに移動、fgでvimに戻る
 :w !sudo tee % 書き込み権限がないファイルに書込み
 v/ge geの場所まで選択
 d/ge geの場所まで削除
-
+:set suffixesadd+=.rb でgf時に拡張子補完する
+xp ２文字をいれかえ 
+ddp ２行を入れ替え
 
 # vimrc
 10進数でインクリメント  
 {% highlight text %}
 set nrformats=
+{% endhighlight %}
+
+%を拡張してdef endなども対応する
+{% highlight text %}
+runtime macros/matchit.vim
 {% endhighlight %}
 

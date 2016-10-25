@@ -73,6 +73,8 @@ mV 大文字だとグローバルにマークできる
 "_d{motion} ブラックホールレジスタ レジスタに影響しない
 "ayiw レジスタaに単語を登録
 "ap レジスタaの単語をpaste
+P さっきのレジスタを貼り付ける
+"+p 他のアプリでコピーした内容をはりつける
 {% endhighlight %}
 
 # insert mode
@@ -90,6 +92,7 @@ Ctrl+v 文字コード 文字コードを入力できる
 Ctrl+k ダイグラフ ダイグラフを入力できる
 <ESC>o <CR>と同じ
 <C+i> Tabをインサート
+<C+r>= 計算式を実行できる
 {% endhighlight %}
 
 # visual mode
@@ -134,6 +137,9 @@ Ctrl+d 入力中に候補を表示
 :marks マーク一覧
 :jumps ジャンプリスト一覧
 :changes 変更一覧
+:d(elete) c レジスタcに切り取り
+:p(ut) c レジスタcを貼り付け
+:<C+r>= 計算式を実行できる
 {% endhighlight %}
 
 # ex mode

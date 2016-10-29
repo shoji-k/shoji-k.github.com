@@ -74,7 +74,7 @@ mV 大文字だとグローバルにマークできる
 "ayiw レジスタaに単語を登録
 "ap レジスタaの単語をpaste
 P さっきのレジスタを貼り付ける
-"+p 他のアプリでコピーした内容をはりつける
+"+p 他のアプリでコピーした内容をはりつける pasteモード不要
 {% endhighlight %}
 
 # insert mode
@@ -98,6 +98,7 @@ Ctrl+k ダイグラフ ダイグラフを入力できる
 # visual mode
 {% highlight text %}
 o visual選択の反対側へいく
+"0p ヤンクレジスタを貼り付け
 {% endhighlight %}
 
 # command line mode

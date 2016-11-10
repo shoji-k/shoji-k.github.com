@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "trip tips"
+date:   2016-11-10 13:00:00 +0900
+categories: trip
+---
+
+# baggage list
+
+[ ] パスポート  
+[ ] フライトチケットの予約表  
+[ ] かばん  
+[ ] 着替え  
+[ ] SIMフリー携帯  
+[ ] SIMピン [ペーパークリップで代用](http://amzn.to/2elD9z5)  
+[ ] [ダクトテープ](http://amzn.to/2elIkid)  
+
+# todo
+
+[ ] 為替レートをチェック [外国為替計算 \- Yahoo\!ファイナンス](http://info.finance.yahoo.co.jp/fx/convert/?a=1&s=HKD&t=JPY)  
+[ ] SIMの手に入れ方をチェック  
+[ ] 必要なアプリを入れる ex. jetstar app  
+[ ] Google Mapをローカルダウンロード  
+[ ] 機内持ち込みサイズ確認 ex. http://www.jetstar.com/jp/ja/help/articles/carry-on-baggage  
+[ ] 土産の目星を付けて、買う数を確認  
+

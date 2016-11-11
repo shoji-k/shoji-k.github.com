@@ -47,5 +47,14 @@ copy .gnupg directory
 todo  
 [ ] retry
 
+# tips
 
+手元のブランチを削除する  
+$ git branch -d (sample)  
+
+リモートリポジトリのブランチを削除する  
+$ git push origin :(sample)
+
+リモートリポジトリで削除されたブランチが手元で残っているとき削除する  
+$ git remote prune origin  
 

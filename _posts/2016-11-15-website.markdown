@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "website"
+date:   2016-11-15 11:00:00 +0900
+categories: website
+---
+
+# facebook oga
+[Webmasters \- Sharing](https://developers.facebook.com/docs/sharing/webmasters)
+
+# twitter card
+[Twitterカード — Twitter Developers](https://dev.twitter.com/ja/cards/overview)
+
+{% highlight php %}
+{% endhighlight %}
+

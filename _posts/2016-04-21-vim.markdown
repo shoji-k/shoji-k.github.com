@@ -75,6 +75,7 @@ mV 大文字だとグローバルにマークできる
 "ap レジスタaの単語をpaste
 P さっきのレジスタを貼り付ける
 "+p 他のアプリでコピーした内容をはりつける pasteモード不要
+qA aのマクロに追記する
 {% endhighlight %}
 
 # insert mode
@@ -141,6 +142,7 @@ Ctrl+d 入力中に候補を表示
 :d(elete) c レジスタcに切り取り
 :p(ut) c レジスタcを貼り付け
 :<C+r>= 計算式を実行できる
+:reg a マクロaの内容を表示
 {% endhighlight %}
 
 # ex mode
@@ -148,6 +150,9 @@ Ctrl+d 入力中に候補を表示
 :s/foo/bar replace one word
 :s/foo/bar/g replace words
 :/<html>/+1,/<\/html>/-1p HTMLタグ行を除く中身をプリント
+:'<,'>normal @a aのマクロを選択した範囲に適用
+:let i=1 iに1を代入
+挿入モード <C+r>=i<CR> iを挿入
 {% endhighlight %}
 
 # auto mark
@@ -167,6 +172,8 @@ d/ge geの場所まで削除
 :set suffixesadd+=.rb でgf時に拡張子補完する
 xp ２文字をいれかえ 
 ddp ２行を入れ替え
+:put a マクロ(レジスタ)aを貼り付けマクロを編集して
+"ay$ マクロaに格納し直す
 
 # vimrc
 10進数でインクリメント  
